@@ -17,6 +17,6 @@ const server = app.listen( app.get('port'), () => {
 const SocketIO = require('socket.io');
 const io = SocketIO(server);
 
-io.on('connection', () => {
-    console.log( 'new connection' );
+io.on('connection', (socket) => {
+    console.log( 'new connection', socket.id );
 });
