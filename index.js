@@ -19,4 +19,10 @@ const io = SocketIO(server);
 
 io.on('connection', (socket) => {
     console.log( 'new connection', socket.id );
+
+    socket.on('client:message', (data) => {
+        console.log( data );
+        io.sockets.emit( 'chat:message', data );
+    });
+
 });
